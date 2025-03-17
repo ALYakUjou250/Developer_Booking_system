@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intro Video</title>
+    <style>
+        /* Make sure the video takes the full screen */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        #introVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        #introAudio {
+            display: none; /* Hide the audio element */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fullscreen Intro Video -->
+    <video id="introVideo" autoplay muted>
+        <source src="audio/opening_6.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Audio Element for Background Sound -->
+    <audio id="introAudio" autoplay>
+        <source src="audio/opening_6.mp4" type="audio/mp4">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <script>
+        // Get the video and audio elements
+        var introVideo = document.getElementById('introVideo');
+        var introAudio = document.getElementById('introAudio');
+
+        // Play video and audio every time the page is refreshed
+        introAudio.play();
+        
+        // Once the video finishes, redirect to index.html
+        introVideo.onended = function() {
+            setTimeout(function() {
+                window.location.href = 'index.html'; // Redirect to index.html
+            }, ); // 1 second delay before redirect
+        };
+    </script>
+
+</body>
+</html>

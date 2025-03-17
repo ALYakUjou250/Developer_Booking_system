@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect After Video Change</title>
+    <style>
+        /* Basic setup for full-page video */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #videoContainer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Make sure the video stays behind the content */
+        }
+
+        #backgroundVideo, #shortVideo {
+            object-fit: cover; /* Ensure both videos cover the entire screen */
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Style for the link */
+        #redirectLink {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Link to trigger the video change -->
+    <a href="#" id="redirectLink">Click me</a>
+
+    <!-- Default Background Video -->
+    <div id="videoContainer">
+        <video id="backgroundVideo" autoplay muted loop>
+            <source src="assets/hacker.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Short Video that will play after link click -->
+    <div id="shortVideoContainer" style="display: none;">
+        <video id="shortVideo" autoplay muted>
+            <source src="audio/opening_5.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const redirectLink = document.getElementById('redirectLink');
+        const backgroundVideo = document.getElementById('backgroundVideo');
+        const shortVideoContainer = document.getElementById('shortVideoContainer');
+        const shortVideo = document.getElementById('shortVideo');
+
+        // When the link is clicked
+        redirectLink.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent the default action (redirect)
+
+            // Hide the background video and show the short video
+            backgroundVideo.style.display = 'none';
+            shortVideoContainer.style.display = 'block';
+            shortVideo.play();
+
+            // Once the short video finishes, redirect
+            shortVideo.onended = function() {
+                window.location.href = "https://www.facebook.com/phinmaed.cite"; // Replace with the desired link
+            };
+        });
+    </script>
+
+</body>
+</html>

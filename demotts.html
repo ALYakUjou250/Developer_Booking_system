@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Language TTS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        textarea {
+            width: 80%;
+            max-width: 500px;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            resize: none;
+            outline: none;
+        }
+
+        select, button {
+            margin-top: 10px;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        select {
+            background-color: white;
+            border: 2px solid #007bff;
+        }
+
+        button {
+            color: white;
+            background-color: #007bff;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🗣️ Multi-Language Text-to-Speech</h2>
+
+    <select id="language">
+        <option value="en-US">🇺🇸 English</option>
+        <option value="fil-PH">🇵🇭 Filipino</option>
+        <option value="es-ES">🇪🇸 Spanish</option>
+        <option value="ja-JP">🇯🇵 Japanese</option>
+    </select> <br>
+
+    <textarea id="text" placeholder="Type something..."></textarea><br>
+    <button onclick="speak()">🎤 Speak</button>
+
+    <script>
+        function speak() {
+            let text = document.getElementById("text").value;
+            let language = document.getElementById("language").value;
+            let speech = new SpeechSynthesisUtterance(text);
+            
+            speech.lang = language; 
+            speech.rate = 1;
+            speech.pitch = 1;
+            speech.volume = 1;
+
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>
+    

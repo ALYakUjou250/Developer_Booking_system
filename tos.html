@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        /* Ensure video containers take up the full screen */
+        #background-video, #shortVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hide all elements on the page except for the short video during playback */
+        #shortVideoContainer {
+            display: none;
+            z-index: 1; /* Ensure short video is on top */
+        }
+
+        /* Hide content during video */
+        .content-container {
+            display: block;
+            z-index: 2; /* Content will be above the background and video */
+        }
+
+        .card {
+            display: block;
+        }
+
+        /* Style the body and container to make sure content is positioned correctly */
+        body, .content-container {
+            position: relative;
+            z-index: 2; /* Content will be above the background and video */
+        }
+
+        header {
+            position: relative;
+            z-index: 3; /* Ensure header elements are visible above background video */
+        }
+
+        footer {
+            position: relative;
+            z-index: 3; /* Ensure footer is also above the background video */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video id="background-video" autoplay loop muted>
+    <source src="assets/hacker.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<header>
+    <a href="index.html" target="_blank">
+        <img src="assets/mask.png" alt="Mask Logo" class="social-logo">
+    </a>
+</header>
+
+<!-- Terms of Service Content -->
+<div class="content-container">
+    <div class="card">
+        <div class="text-content">
+            <h2>Terms of Service</h2>
+            <p>By using our services, you agree to abide by the terms outlined here. These terms govern your use of our website and services, so please read them carefully.</p>
+            
+            <h3>1. Acceptance of Terms</h3>
+            <p>By accessing or using our website and services, you acknowledge that you have read, understood, and agree to be bound by these Terms of Service and any related policies. If you disagree with any part of the terms, you must not use our services.</p>
+
+            <h3>2. Changes to the Terms</h3>
+            <p>We may update these terms from time to time. Your continued use of the site after any such changes will be deemed acceptance of the new terms. We recommend reviewing these terms periodically to stay informed of any updates.</p>
+
+            <h3>3. User Responsibilities</h3>
+            <p>As a user, you are responsible for maintaining the confidentiality of your account and for all activities that occur under your account. You agree to notify us immediately if you become aware of any unauthorized use of your account.</p>
+
+            <h3>4. Restrictions on Use</h3>
+            <p>Users are prohibited from using our website and services for any unlawful purposes, including but not limited to: violating intellectual property rights, distributing harmful software, or engaging in activities that disrupt the service.</p>
+
+            <h3>5. Privacy and Data Security</h3>
+            <p>We value your privacy and are committed to protecting your personal data. Please refer to our Privacy Policy to understand how we collect, use, and safeguard your information.</p>
+
+            <h3>6. Limitation of Liability</h3>
+            <p>We are not liable for any indirect, incidental, or consequential damages that may arise from the use or inability to use our website and services, even if we have been advised of the possibility of such damages.</p>
+
+            <h3>7. Termination</h3>
+            <p>We may terminate or suspend your access to our services at any time, with or without notice, for conduct that we believe violates these Terms or is harmful to the website and its users.</p>
+
+            <h3>8. Governing Law</h3>
+            <p>These Terms of Service will be governed by and construed in accordance with the laws of [Your Country], and any disputes arising under these terms will be resolved in the competent courts of [Your Country].</p>
+
+            <h3>9. Contact Information</h3>
+            <p>If you have any questions or concerns regarding these Terms of Service, please contact us at [Your Contact Information].</p>
+        </div>
+        <img src="assets/mask.png" alt="Contact Image" class="contact-image">
+    </div>
+</div>
+
+<!-- Short Video that will play after logo click -->
+<div id="shortVideoContainer">
+    <video id="shortVideo" autoplay muted>
+        <source src="audio/opening_5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<footer>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="assets/facebook.png" alt="Facebook Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/@phinmaofficial/" target="_blank">
+            <img src="assets/phinma.jpg" alt="YouTube Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/phinmaed.cite" target="_blank">
+            <img src="assets/cite.jpg" alt="Twitter Logo" class="social-logo">
+        </a>
+    </div>
+    <!-- Separate container for coc2 logo -->
+    <div class="coc2-logo-container">
+        <img src="assets/coc2.png" alt="Coc2 Logo" class="coc2-logo">
+        <p>&copy; 2025 Team Anonymous. All Rights Reserved.</p>
+    </div>
+    
+    <!-- New links for Privacy Policy, Terms of Service, and Contact Us -->
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tos.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</footer>
+
+<script>
+    // Add a delay before navigating to index.html when clicking the mask logo
+    document.querySelector('header a').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link action
+
+    // Get the background video, short video container, and other elements to hide
+    var backgroundVideo = document.getElementById('background-video');
+    var shortVideoContainer = document.getElementById('shortVideoContainer');
+    var shortVideo = document.getElementById('shortVideo');
+    var header = document.querySelector('header');
+    var footer = document.querySelector('footer');
+    var card = document.querySelector('.card'); // Card that you want to hide
+
+    // Hide the header, footer, card, and background video
+    header.style.display = 'none';
+    footer.style.display = 'none';
+    card.style.display = 'none';
+    backgroundVideo.style.display = 'none';
+
+    // Show the short video
+    shortVideoContainer.style.display = 'block';
+    
+    // Play the short video
+    shortVideo.play();
+
+    // After the video finishes, redirect to index.html
+    shortVideo.onended = function() {
+        setTimeout(function() {
+            window.location.href = "index.html"; // Redirect to index.html
+        }, ); // Wait for 1 second before redirecting
+    };
+});
+
+</script>
+
+</body>  
+</html>

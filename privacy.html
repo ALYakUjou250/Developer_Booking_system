@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <link rel="stylesheet" href="styles3.css">
+    <style>
+        /* Ensure video containers take up the full screen */
+        #background-video, #shortVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hide all elements on the page except for the short video during playback */
+        #shortVideoContainer {
+            display: none;
+            z-index: 1; /* Ensure short video is on top */
+        }
+
+        /* Hide content during video */
+        .content-container {
+            display: block;
+            z-index: 2; /* Content will be above the background and video */
+        }
+
+        .card {
+            display: block;
+        }
+
+        /* Style the body and container to make sure content is positioned correctly */
+        body, .content-container {
+            position: relative;
+            z-index: 2; /* Content will be above the background and video */
+        }
+
+        header {
+            position: relative;
+            z-index: 3; /* Ensure header elements are visible above background video */
+        }
+
+        footer {
+            position: relative;
+            z-index: 3; /* Ensure footer is also above the background video */
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Background Video -->
+<video id="background-video" autoplay loop muted>
+    <source src="assets/hacker.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<header>
+    <a href="index.html" target="_blank">
+        <img src="assets/mask.png" alt="Mask Logo" class="social-logo">
+    </a>
+</header>
+
+<!-- Privacy Policy Content -->
+<div class="content-container">
+    <div class="card">
+        <div class="text-content">
+            <h2>Privacy Policy</h2>
+            <p>Our privacy policy explains how we collect, use, and protect your data. By using our services, you agree to the collection and use of information in accordance with this policy.</p>
+            <p>We do not share personal information without your consent. We use the information to improve our services and provide a better experience for our users.</p>
+            <p>For more details, please review our full privacy policy below.</p>
+
+            <h3>1. Information We Collect</h3>
+            <p>We collect various types of information to provide and improve our service to you. This may include:</p>
+            <ul>
+                <li><strong>Personal Data:</strong> We may ask you for personal information such as your name, email address, and other identifiable data.</li>
+                <li><strong>Usage Data:</strong> We collect data about how you access and use our services, such as your IP address, browser type, and page views.</li>
+                <li><strong>Cookies:</strong> We use cookies and similar tracking technologies to track activity on our service and store certain information.</li>
+            </ul>
+
+            <h3>2. How We Use Your Information</h3>
+            <p>The information we collect is used for various purposes, including:</p>
+            <ul>
+                <li>To provide and maintain our service.</li>
+                <li>To notify you about changes to our service.</li>
+                <li>To allow you to participate in interactive features of our service when you choose to do so.</li>
+                <li>To gather analysis or valuable information to improve our service.</li>
+                <li>To monitor the usage of our service.</li>
+                <li>To detect, prevent, and address technical issues.</li>
+            </ul>
+
+            <h3>3. Data Protection</h3>
+            <p>We take the protection of your data seriously. We implement various security measures to safeguard your personal information, including:</p>
+            <ul>
+                <li>Encryption of sensitive data.</li>
+                <li>Regular monitoring of security systems.</li>
+                <li>Secure authentication mechanisms.</li>
+            </ul>
+
+            <h3>4. Sharing of Data</h3>
+            <p>We do not share your personal data with third parties without your explicit consent, except in the following circumstances:</p>
+            <ul>
+                <li>If required by law or in response to valid legal requests by public authorities.</li>
+                <li>If it is necessary to protect our rights, property, or safety, and the safety of others.</li>
+                <li>If we partner with trusted third-party services to help operate our service.</li>
+            </ul>
+
+            <h3>5. Your Rights</h3>
+            <p>You have the right to access, update, or delete your personal data at any time. You may also withdraw your consent at any time, though this may affect your ability to use our services.</p>
+            <ul>
+                <li><strong>Access:</strong> You can request access to the personal information we hold about you.</li>
+                <li><strong>Rectification:</strong> You can request corrections to any inaccurate data.</li>
+                <li><strong>Deletion:</strong> You can request the deletion of your personal data under certain conditions.</li>
+                <li><strong>Withdrawal of Consent:</strong> You can withdraw your consent to processing at any time.</li>
+            </ul>
+
+            <h3>6. Cookies</h3>
+            <p>Cookies are small files stored on your device. We use cookies to track your activity and enhance your experience on our platform. You can control the use of cookies through your browser settings. For more detailed information about our use of cookies, please refer to our Cookie Policy.</p>
+
+            <h3>7. Third-Party Services</h3>
+            <p>Our services may contain links to third-party websites or services that are not operated by us. We are not responsible for the content or privacy practices of these third-party services. We encourage you to review their privacy policies before interacting with them.</p>
+
+            <h3>8. Changes to This Privacy Policy</h3>
+            <p>We may update our privacy policy from time to time. We will notify you of any changes by posting the new privacy policy on this page. Please review this privacy policy periodically for any updates.</p>
+
+            <h3>9. Contact Us</h3>
+            <p>If you have any questions about this privacy policy or our data handling practices, please contact us at <strong>privacy@company.com</strong>.</p>
+
+        </div>
+    </div>
+</div>
+<div id="shortVideoContainer">
+    <video id="shortVideo" autoplay muted>
+        <source src="audio/opening_5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="assets/facebook.png" alt="Facebook Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/@phinmaofficial/" target="_blank">
+            <img src="assets/phinma.jpg" alt="YouTube Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/phinmaed.cite" target="_blank">
+            <img src="assets/cite.jpg" alt="Twitter Logo" class="social-logo">
+        </a>
+    </div>
+    <!-- Separate container for coc2 logo -->
+    <div class="coc2-logo-container">
+        <img src="assets/coc2.png" alt="Coc2 Logo" class="coc2-logo">
+        <p>&copy; 2025 Team Anonymous. All Rights Reserved.</p>
+    </div>
+    
+    <!-- New links for Privacy Policy, Terms of Service, and Contact Us -->
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tos.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+    
+</footer>
+
+<script>
+  // Add a delay before navigating to index.html when clicking the mask logo
+  document.querySelector('header a').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link action
+
+    // Get the background video, short video container, and other elements to hide
+    var backgroundVideo = document.getElementById('background-video');
+    var shortVideoContainer = document.getElementById('shortVideoContainer');
+    var shortVideo = document.getElementById('shortVideo');
+    var header = document.querySelector('header');
+    var footer = document.querySelector('footer');
+    var card = document.querySelector('.card'); // Card that you want to hide
+
+    // Hide the header, footer, card, and background video
+    header.style.display = 'none';
+    footer.style.display = 'none';
+    card.style.display = 'none';
+    backgroundVideo.style.display = 'none';
+
+    // Show the short video
+    shortVideoContainer.style.display = 'block';
+    
+    // Play the short video
+    shortVideo.play();
+
+    // After the video finishes, redirect to index.html
+    shortVideo.onended = function() {
+        setTimeout(function() {
+            window.location.href = "index.html"; // Redirect to index.html
+        }, ); // Wait for 1 second before redirecting
+    };
+});
+</script>
+
+</body>
+</html>

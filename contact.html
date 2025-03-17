@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles2.css">
+    <style>
+        /* Ensure video containers take up the full screen */
+        #background-video, #shortVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Hide all elements on the page except for the short video during playback */
+        #shortVideoContainer {
+            display: none;
+            z-index: 1; /* Ensure short video is on top */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Background Video -->
+<video id="background-video" autoplay loop muted>
+    <source src="assets/hacker.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+<header>
+    <a href="index.html" target="_blank">
+        <img src="assets/mask.png" alt="Mask Logo" class="social-logo" id="back-to-index">
+    </a>
+</header>
+
+<!-- Contact Us Content -->
+<div class="content-container">
+    <div class="card">
+        <div class="text-content">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, feel free to reach out to us.</p>
+            <p>Email us at: <a href="mailto:support@teamanonymous.com">support@teamanonymous.com</a></p>
+            <p>Alternatively, you can contact us through our social media channels.</p>
+        </div>
+        <img src="assets/mask.png" alt="Contact Image" class="contact-image">
+    </div>
+</div>
+
+<footer>
+    <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="assets/facebook.png" alt="Facebook Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/@phinmaofficial/" target="_blank">
+            <img src="assets/phinma.jpg" alt="YouTube Logo" class="social-logo">
+        </a>
+        <a href="https://www.facebook.com/phinmaed.cite" target="_blank">
+            <img src="assets/cite.jpg" alt="Twitter Logo" class="social-logo">
+        </a>
+    </div>
+
+    <div class="coc2-logo-container">
+        <img src="assets/coc2.png" alt="Coc2 Logo" class="coc2-logo">
+        <p>&copy; 2025 Team Anonymous. All Rights Reserved.</p>
+    </div>
+
+    <div class="footer-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="tos.html">Terms of Service</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+</footer>
+
+<!-- Short Video that will play after logo click -->
+<div id="shortVideoContainer">
+    <video id="shortVideo" autoplay muted>
+        <source src="audio/opening_5.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<script>
+    // Add a delay before navigating to index.html when clicking the mask logo
+    document.getElementById('back-to-index').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link action
+
+        // Get the background video and short video container
+        var backgroundVideo = document.getElementById('background-video');
+        var shortVideoContainer = document.getElementById('shortVideoContainer');
+        var shortVideo = document.getElementById('shortVideo');
+
+        // Hide the background video and show the short video
+        backgroundVideo.style.display = 'none';
+        shortVideoContainer.style.display = 'block';
+
+        // Play the short video
+        shortVideo.play();
+
+        // After the video finishes, redirect to index.html
+        shortVideo.onended = function() {
+            setTimeout(function() {
+                window.location.href = "index.html"; // Redirect to index.html
+            },); // Wait for 1 second before redirecting
+        };
+    });
+</script>
+
+</body>
+</html>
